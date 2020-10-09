@@ -298,9 +298,26 @@ namespace CRUD_CEP
 
         private void LocalizaCep_Click(object sender, EventArgs e)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://viacep.com.br/ws/" + Box_Cep.Text + "/json/");
+            String url = "";
+
+            if (Box_Cep.Text != "" ){
+
+                url = Box_Cep.Text;
+
+            }
+            else {
+
+                url = (BoxUF.Text + "/" + BoxCidade.Text + "/" + BoxLogradouro.Text);
+
+            }
+
+
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://viacep.com.br/ws/" + url + "/json/");
             request.AllowAutoRedirect = false;
             HttpWebResponse ChecaServidor = (HttpWebResponse)request.GetResponse();
+
+
 
             if (ChecaServidor.StatusCode != HttpStatusCode.OK)
             {
@@ -321,42 +338,101 @@ namespace CRUD_CEP
                         String[] substrings = response.Split('\n');
 
                         int cont = 0;
-                        foreach (var substring in substrings)
+
+                        if (Box_Cep.Text == "")
                         {
-                            if (cont == 1)
+
+                            foreach (var substring in substrings)
                             {
-                                string[] valor = substring.Split(":".ToCharArray());
-                                if (valor[0] == "  erro")
+                                if (cont == 2)
                                 {
-                                    MessageBox.Show("CEP não encontrado");
-                                    Box_Cep.Focus();
-                                    return;
+                                    string[] valor = substring.Split(":".ToCharArray());
+                                    if (valor[0] == "  erro")
+                                    {
+                                        MessageBox.Show("CEP não encontrado");
+                                        Box_Cep.Focus();
+                                        return;
+                                    }
+                                   Box_Cep.Text = valor[1];
                                 }
+
+                                //Logradouro
+                                if (cont == 3)
+                                {
+                                    string[] valor = substring.Split(":".ToCharArray());
+                                    BoxLogradouro.Text = valor[1];
+                                }
+
+                                //Cidade
+                                if (cont == 6)
+                                {
+                                    string[] valor = substring.Split(":".ToCharArray());
+                                    BoxCidade.Text = valor[1];
+                                }
+
+                                //Estado (UF)
+                                if (cont == 7)
+                                {
+                                    string[] valor = substring.Split(":".ToCharArray());
+                                    BoxUF.Text = valor[1];
+                                }
+
+                                cont++;
                             }
 
-                            //Logradouro
-                            if (cont == 2)
-                            {
-                                string[] valor = substring.Split(":".ToCharArray());
-                                BoxLogradouro.Text = valor[1];
-                            }
-
-                            //Cidade
-                            if (cont == 5)
-                            {
-                                string[] valor = substring.Split(":".ToCharArray());
-                                BoxCidade.Text = valor[1];
-                            }
-
-                            //Estado (UF)
-                            if (cont == 6)
-                            {
-                                string[] valor = substring.Split(":".ToCharArray());
-                                BoxUF.Text = valor[1];
-                            }
-
-                            cont++;
                         }
+
+
+
+
+
+                        else {
+                            foreach (var substring in substrings)
+                            {
+                                if (cont == 1)
+                                {
+                                    string[] valor = substring.Split(":".ToCharArray());
+                                    if (valor[0] == "  erro")
+                                    {
+                                        MessageBox.Show("CEP não encontrado");
+                                        Box_Cep.Focus();
+                                        return;
+                                    }
+                                    Box_Cep.Text = valor[1];
+                                }
+
+                                //Logradouro
+                                if (cont == 2)
+                                {
+                                    string[] valor = substring.Split(":".ToCharArray());
+                                    BoxLogradouro.Text = valor[1];
+                                }
+
+                                //Cidade
+                                if (cont == 5)
+                                {
+                                    string[] valor = substring.Split(":".ToCharArray());
+                                    BoxCidade.Text = valor[1];
+                                }
+
+                                //Estado (UF)
+                                if (cont == 6)
+                                {
+                                    string[] valor = substring.Split(":".ToCharArray());
+                                    BoxUF.Text = valor[1];
+                                }
+
+                                cont++;
+                            }
+
+
+                        }
+
+
+
+
+
+
                     }
                 }
             }
@@ -371,7 +447,8 @@ namespace CRUD_CEP
                 BoxLogradouro.Text = GridView.CurrentRow.Cells[2].Value.ToString();
                 BoxNumero.Text = GridView.CurrentRow.Cells[3].Value.ToString();
                 BoxCidade.Text = GridView.CurrentRow.Cells[4].Value.ToString();
-                BoxCidade.Text = GridView.CurrentRow.Cells[5].Value.ToString();
+                BoxUF.Text = GridView.CurrentRow.Cells[5].Value.ToString();
+                BoxID.Text = GridView.CurrentRow.Cells[0].Value.ToString();
             }
         }
     }

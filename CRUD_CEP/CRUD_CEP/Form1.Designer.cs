@@ -48,7 +48,6 @@
             this.buttonExibir = new System.Windows.Forms.Button();
             this.buttonConsulta = new System.Windows.Forms.Button();
             this.BoxID = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.LocalizaCep = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridView)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +77,7 @@
             this.BoxLogradouro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BoxLogradouro.Location = new System.Drawing.Point(26, 103);
             this.BoxLogradouro.Name = "BoxLogradouro";
-            this.BoxLogradouro.Size = new System.Drawing.Size(512, 26);
+            this.BoxLogradouro.Size = new System.Drawing.Size(493, 26);
             this.BoxLogradouro.TabIndex = 3;
             this.BoxLogradouro.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -97,7 +96,7 @@
             // BoxNumero
             // 
             this.BoxNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BoxNumero.Location = new System.Drawing.Point(549, 103);
+            this.BoxNumero.Location = new System.Drawing.Point(525, 103);
             this.BoxNumero.Name = "BoxNumero";
             this.BoxNumero.Size = new System.Drawing.Size(40, 26);
             this.BoxNumero.TabIndex = 5;
@@ -108,7 +107,7 @@
             this.label_numero.AutoSize = true;
             this.label_numero.BackColor = System.Drawing.SystemColors.Control;
             this.label_numero.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_numero.Location = new System.Drawing.Point(544, 79);
+            this.label_numero.Location = new System.Drawing.Point(520, 75);
             this.label_numero.Name = "label_numero";
             this.label_numero.Size = new System.Drawing.Size(37, 25);
             this.label_numero.TabIndex = 4;
@@ -118,9 +117,9 @@
             // BoxCidade
             // 
             this.BoxCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BoxCidade.Location = new System.Drawing.Point(600, 103);
+            this.BoxCidade.Location = new System.Drawing.Point(571, 103);
             this.BoxCidade.Name = "BoxCidade";
-            this.BoxCidade.Size = new System.Drawing.Size(130, 26);
+            this.BoxCidade.Size = new System.Drawing.Size(159, 26);
             this.BoxCidade.TabIndex = 7;
             // 
             // labelCidade
@@ -128,7 +127,7 @@
             this.labelCidade.AutoSize = true;
             this.labelCidade.BackColor = System.Drawing.SystemColors.Control;
             this.labelCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCidade.Location = new System.Drawing.Point(595, 79);
+            this.labelCidade.Location = new System.Drawing.Point(566, 75);
             this.labelCidade.Name = "labelCidade";
             this.labelCidade.Size = new System.Drawing.Size(86, 25);
             this.labelCidade.TabIndex = 6;
@@ -147,7 +146,7 @@
             this.labelUF.AutoSize = true;
             this.labelUF.BackColor = System.Drawing.SystemColors.Control;
             this.labelUF.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUF.Location = new System.Drawing.Point(734, 79);
+            this.labelUF.Location = new System.Drawing.Point(734, 75);
             this.labelUF.Name = "labelUF";
             this.labelUF.Size = new System.Drawing.Size(42, 25);
             this.labelUF.TabIndex = 8;
@@ -214,11 +213,11 @@
             // 
             this.buttonConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonConsulta.Location = new System.Drawing.Point(583, 385);
+            this.buttonConsulta.Location = new System.Drawing.Point(571, 385);
             this.buttonConsulta.Name = "buttonConsulta";
-            this.buttonConsulta.Size = new System.Drawing.Size(193, 53);
+            this.buttonConsulta.Size = new System.Drawing.Size(205, 53);
             this.buttonConsulta.TabIndex = 15;
-            this.buttonConsulta.Text = "Pesquisar Registro";
+            this.buttonConsulta.Text = "Pesquisar Registro :";
             this.buttonConsulta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonConsulta.UseVisualStyleBackColor = true;
             this.buttonConsulta.Click += new System.EventHandler(this.button2_Click);
@@ -232,20 +231,7 @@
             this.BoxID.Name = "BoxID";
             this.BoxID.Size = new System.Drawing.Size(40, 26);
             this.BoxID.TabIndex = 17;
-            this.BoxID.Visible = false;
             this.BoxID.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(633, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 25);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Registro";
-            this.label1.Visible = false;
             // 
             // LocalizaCep
             // 
@@ -265,7 +251,6 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.LocalizaCep);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.BoxID);
             this.Controls.Add(this.buttonConsulta);
             this.Controls.Add(this.buttonExibir);
@@ -312,7 +297,6 @@
         private System.Windows.Forms.Button buttonExibir;
         private System.Windows.Forms.Button buttonConsulta;
         private System.Windows.Forms.TextBox BoxID;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button LocalizaCep;
     }
 }
