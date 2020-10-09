@@ -49,6 +49,7 @@
             this.buttonConsulta = new System.Windows.Forms.Button();
             this.BoxID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.LocalizaCep = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,6 +164,7 @@
             this.GridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.GridView.Size = new System.Drawing.Size(750, 228);
             this.GridView.TabIndex = 10;
+            this.GridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridView_CellContentClick);
             // 
             // buttonInsert
             // 
@@ -178,7 +180,7 @@
             // buttonAlterar
             // 
             this.buttonAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAlterar.Location = new System.Drawing.Point(491, 385);
+            this.buttonAlterar.Location = new System.Drawing.Point(386, 385);
             this.buttonAlterar.Name = "buttonAlterar";
             this.buttonAlterar.Size = new System.Drawing.Size(133, 29);
             this.buttonAlterar.TabIndex = 12;
@@ -189,7 +191,7 @@
             // buttonDel
             // 
             this.buttonDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDel.Location = new System.Drawing.Point(244, 385);
+            this.buttonDel.Location = new System.Drawing.Point(134, 385);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(90, 29);
             this.buttonDel.TabIndex = 13;
@@ -200,22 +202,24 @@
             // buttonExibir
             // 
             this.buttonExibir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExibir.Location = new System.Drawing.Point(340, 385);
+            this.buttonExibir.Location = new System.Drawing.Point(243, 385);
             this.buttonExibir.Name = "buttonExibir";
-            this.buttonExibir.Size = new System.Drawing.Size(90, 29);
+            this.buttonExibir.Size = new System.Drawing.Size(118, 29);
             this.buttonExibir.TabIndex = 14;
-            this.buttonExibir.Text = "Listar";
+            this.buttonExibir.Text = "Atualizar Lista";
             this.buttonExibir.UseVisualStyleBackColor = true;
             this.buttonExibir.Click += new System.EventHandler(this.buttonExibir_Click);
             // 
             // buttonConsulta
             // 
             this.buttonConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConsulta.Location = new System.Drawing.Point(630, 385);
+            this.buttonConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonConsulta.Location = new System.Drawing.Point(583, 385);
             this.buttonConsulta.Name = "buttonConsulta";
-            this.buttonConsulta.Size = new System.Drawing.Size(149, 29);
+            this.buttonConsulta.Size = new System.Drawing.Size(193, 53);
             this.buttonConsulta.TabIndex = 15;
             this.buttonConsulta.Text = "Pesquisar Registro";
+            this.buttonConsulta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonConsulta.UseVisualStyleBackColor = true;
             this.buttonConsulta.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -224,10 +228,11 @@
             this.BoxID.BackColor = System.Drawing.SystemColors.Window;
             this.BoxID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BoxID.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.BoxID.Location = new System.Drawing.Point(739, 16);
+            this.BoxID.Location = new System.Drawing.Point(729, 397);
             this.BoxID.Name = "BoxID";
             this.BoxID.Size = new System.Drawing.Size(40, 26);
             this.BoxID.TabIndex = 17;
+            this.BoxID.Visible = false;
             this.BoxID.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // label1
@@ -240,6 +245,18 @@
             this.label1.Size = new System.Drawing.Size(100, 25);
             this.label1.TabIndex = 18;
             this.label1.Text = "Registro";
+            this.label1.Visible = false;
+            // 
+            // LocalizaCep
+            // 
+            this.LocalizaCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LocalizaCep.Location = new System.Drawing.Point(203, 38);
+            this.LocalizaCep.Name = "LocalizaCep";
+            this.LocalizaCep.Size = new System.Drawing.Size(118, 29);
+            this.LocalizaCep.TabIndex = 19;
+            this.LocalizaCep.Text = "Localizar CEP";
+            this.LocalizaCep.UseVisualStyleBackColor = true;
+            this.LocalizaCep.Click += new System.EventHandler(this.LocalizaCep_Click);
             // 
             // Form1
             // 
@@ -247,6 +264,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.LocalizaCep);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BoxID);
             this.Controls.Add(this.buttonConsulta);
@@ -295,6 +313,7 @@
         private System.Windows.Forms.Button buttonConsulta;
         private System.Windows.Forms.TextBox BoxID;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button LocalizaCep;
     }
 }
 
