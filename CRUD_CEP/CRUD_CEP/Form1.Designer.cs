@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Label_Cep = new System.Windows.Forms.Label();
             this.Box_Cep = new System.Windows.Forms.TextBox();
@@ -39,13 +41,15 @@
             this.labelCidade = new System.Windows.Forms.Label();
             this.BoxUF = new System.Windows.Forms.TextBox();
             this.labelUF = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.GridView = new System.Windows.Forms.DataGridView();
             this.buttonInsert = new System.Windows.Forms.Button();
             this.buttonAlterar = new System.Windows.Forms.Button();
             this.buttonDel = new System.Windows.Forms.Button();
             this.buttonExibir = new System.Windows.Forms.Button();
-            this.buttonConsult = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.buttonConsulta = new System.Windows.Forms.Button();
+            this.BoxID = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.GridView)).BeginInit();
             this.SuspendLayout();
             // 
             // Label_Cep
@@ -148,13 +152,17 @@
             this.labelUF.TabIndex = 8;
             this.labelUF.Text = "UF";
             // 
-            // dataGridView1
+            // GridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 142);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(753, 226);
-            this.dataGridView1.TabIndex = 10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.GridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridView.Location = new System.Drawing.Point(26, 142);
+            this.GridView.Name = "GridView";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.GridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.GridView.Size = new System.Drawing.Size(750, 228);
+            this.GridView.TabIndex = 10;
             // 
             // buttonInsert
             // 
@@ -170,55 +178,83 @@
             // buttonAlterar
             // 
             this.buttonAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAlterar.Location = new System.Drawing.Point(133, 385);
+            this.buttonAlterar.Location = new System.Drawing.Point(491, 385);
             this.buttonAlterar.Name = "buttonAlterar";
-            this.buttonAlterar.Size = new System.Drawing.Size(90, 29);
+            this.buttonAlterar.Size = new System.Drawing.Size(133, 29);
             this.buttonAlterar.TabIndex = 12;
-            this.buttonAlterar.Text = "Alterar";
+            this.buttonAlterar.Text = "Alterar Registro";
             this.buttonAlterar.UseVisualStyleBackColor = true;
+            this.buttonAlterar.Click += new System.EventHandler(this.buttonAlterar_Click);
             // 
             // buttonDel
             // 
             this.buttonDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDel.Location = new System.Drawing.Point(241, 385);
+            this.buttonDel.Location = new System.Drawing.Point(244, 385);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(90, 29);
             this.buttonDel.TabIndex = 13;
             this.buttonDel.Text = "Excluir";
             this.buttonDel.UseVisualStyleBackColor = true;
+            this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
             // 
             // buttonExibir
             // 
             this.buttonExibir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExibir.Location = new System.Drawing.Point(443, 385);
+            this.buttonExibir.Location = new System.Drawing.Point(340, 385);
             this.buttonExibir.Name = "buttonExibir";
             this.buttonExibir.Size = new System.Drawing.Size(90, 29);
             this.buttonExibir.TabIndex = 14;
             this.buttonExibir.Text = "Listar";
             this.buttonExibir.UseVisualStyleBackColor = true;
+            this.buttonExibir.Click += new System.EventHandler(this.buttonExibir_Click);
             // 
-            // buttonConsult
+            // buttonConsulta
             // 
-            this.buttonConsult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConsult.Location = new System.Drawing.Point(341, 385);
-            this.buttonConsult.Name = "buttonConsult";
-            this.buttonConsult.Size = new System.Drawing.Size(90, 29);
-            this.buttonConsult.TabIndex = 15;
-            this.buttonConsult.Text = "Consultar";
-            this.buttonConsult.UseVisualStyleBackColor = true;
-            this.buttonConsult.Click += new System.EventHandler(this.button2_Click);
+            this.buttonConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConsulta.Location = new System.Drawing.Point(630, 385);
+            this.buttonConsulta.Name = "buttonConsulta";
+            this.buttonConsulta.Size = new System.Drawing.Size(149, 29);
+            this.buttonConsulta.TabIndex = 15;
+            this.buttonConsulta.Text = "Pesquisar Registro";
+            this.buttonConsulta.UseVisualStyleBackColor = true;
+            this.buttonConsulta.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // BoxID
+            // 
+            this.BoxID.BackColor = System.Drawing.SystemColors.Window;
+            this.BoxID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BoxID.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.BoxID.Location = new System.Drawing.Point(739, 16);
+            this.BoxID.Name = "BoxID";
+            this.BoxID.Size = new System.Drawing.Size(40, 26);
+            this.BoxID.TabIndex = 17;
+            this.BoxID.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(633, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 25);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Registro";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.buttonConsult);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.BoxID);
+            this.Controls.Add(this.buttonConsulta);
             this.Controls.Add(this.buttonExibir);
             this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.buttonAlterar);
             this.Controls.Add(this.buttonInsert);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.GridView);
             this.Controls.Add(this.BoxUF);
             this.Controls.Add(this.labelUF);
             this.Controls.Add(this.BoxCidade);
@@ -233,7 +269,7 @@
             this.Name = "Form1";
             this.Text = "Cadastro Imoveis";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,12 +287,14 @@
         private System.Windows.Forms.Label labelCidade;
         private System.Windows.Forms.TextBox BoxUF;
         private System.Windows.Forms.Label labelUF;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView GridView;
         private System.Windows.Forms.Button buttonInsert;
         private System.Windows.Forms.Button buttonAlterar;
         private System.Windows.Forms.Button buttonDel;
         private System.Windows.Forms.Button buttonExibir;
-        private System.Windows.Forms.Button buttonConsult;
+        private System.Windows.Forms.Button buttonConsulta;
+        private System.Windows.Forms.TextBox BoxID;
+        private System.Windows.Forms.Label label1;
     }
 }
 
